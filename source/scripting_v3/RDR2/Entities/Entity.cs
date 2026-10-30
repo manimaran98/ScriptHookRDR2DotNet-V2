@@ -213,7 +213,17 @@ namespace RDR2
 		public bool IsPersistent
 		{
 			get => IsMissionEntity;
-			set => IsPersistent = value;
+			set
+			{
+				if (value)
+				{
+					MarkAsMissionEntity(true);
+				}
+				else
+				{
+					MarkAsNoLongerNeeded();
+				}
+			}
 		}
 
 		/// <summary>
